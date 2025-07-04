@@ -32,6 +32,7 @@ console.log(url);
 
 export const ogWorker = await Worker("alchemy-og-worker", {
   entrypoint: "./src/og-worker.ts",
+  compatibilityFlags: ["nodejs_compat"],
   routes: [
     {
       pattern: "og.alchemy.run/*",
@@ -47,7 +48,7 @@ if (process.env.PULL_REQUEST) {
     body: `
 ## 🚀 Website Preview Deployed
 
-Your website preview is ready! 
+Your website preview is ready!
 
 **Preview URL:** ${url}
 
